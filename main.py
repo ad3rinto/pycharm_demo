@@ -4,12 +4,11 @@ import turtle
 
 turtle.colormode(255)
 # from prettytable import PrettyTable
-colours = ["red", "blue", "green", "pink", "purple"]
 direction = [0, 90, 180, 270]
 tim = Turtle()
 tim.color("red")
 tim.shape("circle")
-tim.pensize(20)
+# tim.pensize(20)
 tim.speed("fastest")
 
 
@@ -28,7 +27,17 @@ def random_walk(len_of_walk):
         tim.setheading(random.choice(direction))
 
 
-random_walk(200)
+def draw_spirograph(size):
+    for _ in range(int(360/size)):
+        tim.color(random_color())
+        tim.circle(100)
+        tim.setheading((tim.heading()+size))
+
+
+draw_spirograph(5)
+
+
+# random_walk(200)
 # def draw_shape(number_of_sides):
 #     angle = 360 / number_of_sides
 #     for _ in range(number_of_sides):
