@@ -1,4 +1,6 @@
+import random
 from turtle import Turtle, Screen
+
 # from prettytable import PrettyTable
 
 tim = Turtle()
@@ -7,13 +9,15 @@ tim.shape("turtle")
 
 
 def draw_shape(number_of_sides):
-    angle = 360/number_of_sides
-    for _ in range(number_of_sides):
+    angle = 360 / number_of_sides
+    for _ in range(number_of_sides):   
         tim.forward(50)
         tim.right(angle)
 
 
-draw_shape(9)
+for shape_side_number in range(3, 11):
+    tim.color(random.choice(["red", "blue", "green"]))
+    draw_shape(shape_side_number)
 
 my_screen = Screen()
 my_screen.exitonclick()
