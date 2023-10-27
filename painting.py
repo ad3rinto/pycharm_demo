@@ -21,17 +21,24 @@ colours = [(238, 236, 234), (230, 226, 228), (34, 108, 167), (223, 229, 235), (2
 
 tim = Turtle()
 turtle.colormode(255)
+tim.setheading(225)
+tim.penup()
+tim.hideturtle()
+tim.forward(250)
+tim.setheading(0)
+num_of_dots = 100
+tim.speed("fastest")
 
-for i in range(10):
-    tim.pendown()
-    tim.color(random.choice(colours))
-    tim.begin_fill()
-    tim.circle(5)
-    tim.end_fill()
+for dot_counts in range(1, num_of_dots + 1):
+    tim.dot(20, random.choice(colours))
     tim.penup()
-    tim.forward(30)
-    tim.setpos(10, 10)
-
+    tim.forward(50)
+    if dot_counts % 10 == 0:
+        tim.setheading(90)
+        tim.forward(50)
+        tim.setheading(180)
+        tim.forward(500)
+        tim.setheading(0)
 
 screen = Screen()
 screen.exitonclick()
