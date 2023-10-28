@@ -1,24 +1,22 @@
+import random
 from turtle import Turtle, Screen
 
-tim = Turtle()
-tim.penup()
-tim.color("red")
-tim.shape("turtle")
-tim.goto(x=-230, y=-50)
+colours = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"]
 
-taj = Turtle()
-taj.penup()
-taj.color("yellow")
-taj.shape("turtle")
-taj.goto(x=-230, y=50)
+x_cood = -250
+y_cood = -180
 
-tom = Turtle()
-tom.penup()
-tom.color("blue")
-tom.shape("turtle")
-tom.goto(x=-230, y= 0)
+for i in range(len(colours)):
+    racer = colours[i]
+    racer = Turtle(shape="turtle")
+    racer.penup()
+    racer.color(colours[i])
+    racer.goto(x=x_cood, y=y_cood)
+    y_cood += 50
+    racer.speed(random.randint(1, 20))
 
 screen = Screen()
-screen.setup(width=500, height=400)
+screen.setup(width=600, height=600)
+screen.listen()
 user_bet = screen.textinput(title="make your bet", prompt="which turtle will win")
 screen.exitonclick()
